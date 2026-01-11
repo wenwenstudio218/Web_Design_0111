@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 智能電感 - 驅動未來的核心力量</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- jQuery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                container: {
+                    center: true,
+                    padding: '1rem',
+                },
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#E30012',
+                            dark: '#303030',
+                            black: '#1a1a1a',
+                            gray: '#252525'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Noto Sans TC', 'sans-serif'],
+                        'tech': ['Orbitron', 'sans-serif'], 
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        body {
+            @apply bg-brand-black text-gray-100;
+        }
+        .btn {
+            @apply inline-block px-8 py-3 rounded text-white font-bold tracking-wider transition-all duration-300 transform hover:-translate-y-1;
+        }
+        .btn-brand {
+            @apply bg-brand-red hover:bg-red-700 hover:shadow-[0_0_15px_rgba(227,0,18,0.5)];
+        }
+        .cover {
+            @apply w-full h-full block object-cover;
+        }
+        .tech-overlay {
+            @apply relative overflow-hidden rounded-lg;
+        }
+        .tech-overlay::before {
+            content: '';
+            @apply absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 to-transparent opacity-60 z-10 transition-opacity duration-300;
+        }
+        .tech-overlay:hover::before {
+            @apply opacity-30;
+        }
+        .tech-overlay::after {
+            content: '';
+            @apply absolute bottom-0 left-0 w-full h-1 bg-brand-red transition-all duration-300 z-20;
+            width: 0%;
+        }
+        .tech-overlay:hover::after {
+            width: 100%;
+        }
+        
+        .section-title {
+            @apply text-4xl font-bold text-center mb-16 relative inline-block;
+        }
+        .section-title::after {
+            content: '';
+            @apply block w-16 h-1 bg-brand-red mx-auto mt-4 rounded;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- Nav -->
+    <nav
+        class="bg-brand-dark/95 border-b border-gray-700 text-gray-100 flex px-6 py-4 fixed w-full z-50 backdrop-blur-md shadow-lg">
+        <a href="#" class="font-tech text-2xl font-bold tracking-widest flex items-center gap-2">
+            <i class="fa-solid fa-microchip text-brand-red"></i> AI INDUCTOR
+        </a>
+        <a href="#" class="ml-auto sm:hidden toggle-btn text-2xl hover:text-brand-red transition-colors"><i
+                class="fa-solid fa-bars"></i></a>
+        <div class="ml-auto space-x-8 hidden sm:flex font-medium">
+            <a href="#features" class="hover:text-brand-red transition-colors duration-300 relative group">
+                產品特色
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#advantages" class="hover:text-brand-red transition-colors duration-300 relative group">
+                技術優勢
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#applications" class="hover:text-brand-red transition-colors duration-300 relative group">
+                應用場景
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#contact" class="hover:text-brand-red transition-colors duration-300 relative group">
+                聯絡我們
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <nav
+        class="mobile-nav w-full h-screen bg-brand-dark fixed z-50 text-gray-100 text-center flex flex-col justify-center space-y-8 hidden top-0 left-0 transition-opacity">
+        <a href="#" class="text-4xl font-tech font-bold text-brand-red mb-8">AI INDUCTOR</a>
+        <div class="flex flex-col space-y-6 text-2xl font-medium">
+            <a href="#features" class="hover:text-brand-red nav-item">產品特色</a>
+            <a href="#advantages" class="hover:text-brand-red nav-item">技術優勢</a>
+            <a href="#applications" class="hover:text-brand-red nav-item">應用場景</a>
+            <a href="#contact" class="hover:text-brand-red nav-item">聯絡我們</a>
+        </div>
+        <a href="#" class="absolute top-6 right-6 nav-close text-gray-400 hover:text-white transition-colors"><i
+                class="fa-solid fa-xmark fa-2xl"></i></a>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="pb-20 sm:pt-40 pt-28 bg-gradient-to-b from-brand-gray to-brand-black relative overflow-hidden">
+        <!-- 背景裝飾 -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-red/5 skew-x-12 pointer-events-none"></div>
+
+        <div class="container flex flex-wrap items-center relative z-10">
+            <div class="lg:w-1/2 sm:w-7/12 w-full p-4 order-2 sm:order-1 sm:text-left text-center">
+                <h2 class="text-brand-red font-tech text-xl mb-2 tracking-widest">NEXT GEN POWER</h2>
+                <h1 class="font-bold lg:text-6xl sm:text-5xl text-4xl mb-6 leading-tight">
+                    AI 智能電感<br>
+                    <span class="text-gray-400 text-3xl sm:text-4xl">開啟電力管理新紀元</span>
+                </h1>
+                <p class="lg:text-lg sm:text-base text-gray-400 mb-8 leading-relaxed max-w-lg mx-auto sm:mx-0">
+                    結合人工智慧與先進感測技術，實現更精準、更高效的電力控制解決方案。
+                </p>
+                <div class="space-x-4">
+                    <a href="#features" class="btn btn-brand">了解更多</a>
+                    <a href="#contact"
+                        class="btn border border-gray-600 hover:border-brand-red hover:text-brand-red">立即諮詢</a>
+                </div>
+            </div>
+            <div class="lg:w-1/2 sm:w-5/12 w-full order-1 sm:order-2 mb-10 sm:mb-0">
+                <div class="relative group">
+                    <!-- 裝飾框線 -->
+                    <div
+                        class="absolute -inset-2 bg-gradient-to-r from-brand-red to-gray-800 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                    </div>
+                    <img src="./images/Gemini_Generated_Image_hls2mjhls2mjhls2.png"
+                        alt="AI Chip Technology"
+                        class="w-full block rounded-lg shadow-2xl relative border border-gray-700">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 產品特色 (Product Features) - 原 About -->
+    <section id="features" class="py-24 bg-brand-dark relative">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">產品特色</h2>
+            </div>
+
+            <div class="flex flex-wrap space-y-12 lg:space-y-0 mt-8">
+                <!-- Feature 1 -->
+                <div class="lg:w-1/3 w-full flex flex-col items-center px-6 text-center group">
+                    <div
+                        class="w-48 h-48 rounded-full overflow-hidden border-4 border-gray-700 group-hover:border-brand-red transition-colors duration-300 mb-6 relative shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=400&auto=format&fit=crop"
+                            alt="Smart Chip"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-brand-red transition-colors">
+                            智能監控調節</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            內建微型傳感器，透過 AI 演算法即時監控電流與溫度變化，主動調節負載，防止過熱與能源浪費。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="lg:w-1/3 w-full flex flex-col items-center px-6 text-center group">
+                    <div
+                        class="w-48 h-48 rounded-full overflow-hidden border-4 border-gray-700 group-hover:border-brand-red transition-colors duration-300 mb-6 relative shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=400&auto=format&fit=crop"
+                            alt="Efficiency"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-brand-red transition-colors">99%
+                            極致轉換率</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            採用奈米級磁性材料，大幅降低磁滯損耗與渦流損耗，實現業界領先的電能轉換效率。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="lg:w-1/3 w-full flex flex-col items-center px-6 text-center group">
+                    <div
+                        class="w-48 h-48 rounded-full overflow-hidden border-4 border-gray-700 group-hover:border-brand-red transition-colors duration-300 mb-6 relative shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400&auto=format&fit=crop"
+                            alt="Durability"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-brand-red transition-colors">
+                            軍規級耐用度</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            一體成型封裝技術，具備極強的抗震、防潮與耐高溫特性，適應各種嚴苛的工業環境。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技術優勢 (Technical Advantages) - 原 Service -->
+    <section id="advantages" class="py-24 bg-brand-gray lg:px-4">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="section-title">技術優勢</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">領先業界的核心技術</p>
+            </div>
+
+            <div class="flex flex-wrap -mx-4">
+                <!-- Advantage 1 -->
+                <div class="lg:w-1/4 md:w-1/2 w-full p-4">
+                    <div
+                        class="bg-brand-dark rounded-xl overflow-hidden border border-gray-700 hover:border-brand-red duration-300 hover:shadow-[0_10px_30px_-10px_rgba(227,0,18,0.3)] group h-full flex flex-col">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop"
+                                alt="AI Algorithm"
+                                class="cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-red transition-colors">
+                                AI 預測演算法</h3>
+                            <p class="mb-4 text-gray-400 text-sm flex-1">
+                                獨家開發的 AI 模型，能預測負載波動，提前調整電感參數，確保輸出電壓絕對穩定。
+                            </p>
+                            <span class="text-brand-red text-sm font-bold mt-auto cursor-pointer hover:underline">查看詳情
+                                <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advantage 2 -->
+                <div class="lg:w-1/4 md:w-1/2 w-full p-4">
+                    <div
+                        class="bg-brand-dark rounded-xl overflow-hidden border border-gray-700 hover:border-brand-red duration-300 hover:shadow-[0_10px_30px_-10px_rgba(227,0,18,0.3)] group h-full flex flex-col">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop"
+                                alt="Materials" class="cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-red transition-colors">
+                                複合奈米材料</h3>
+                            <p class="mb-4 text-gray-400 text-sm flex-1">
+                                結合鐵矽鋁與奈米晶體，大幅提升飽和磁通密度，體積縮小 30% 但效能不減。
+                            </p>
+                            <span class="text-brand-red text-sm font-bold mt-auto cursor-pointer hover:underline">查看詳情
+                                <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advantage 3 -->
+                <div class="lg:w-1/4 md:w-1/2 w-full p-4">
+                    <div
+                        class="bg-brand-dark rounded-xl overflow-hidden border border-gray-700 hover:border-brand-red duration-300 hover:shadow-[0_10px_30px_-10px_rgba(227,0,18,0.3)] group h-full flex flex-col">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1563770095-39d468f98753?q=80&w=600&auto=format&fit=crop"
+                                alt="Heat Dissipation"
+                                class="cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-red transition-colors">
+                                3D 立體散熱</h3>
+                            <p class="mb-4 text-gray-400 text-sm flex-1">
+                                專利流道設計，配合智能溫控，在高負載運作下仍能維持最佳工作溫度。
+                            </p>
+                            <span class="text-brand-red text-sm font-bold mt-auto cursor-pointer hover:underline">查看詳情
+                                <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advantage 4 -->
+                <div class="lg:w-1/4 md:w-1/2 w-full p-4">
+                    <div
+                        class="bg-brand-dark rounded-xl overflow-hidden border border-gray-700 hover:border-brand-red duration-300 hover:shadow-[0_10px_30px_-10px_rgba(227,0,18,0.3)] group h-full flex flex-col">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1504384308090-c54be3855833?q=80&w=600&auto=format&fit=crop"
+                                alt="Customization"
+                                class="cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-brand-red transition-colors">
+                                模組化定製</h3>
+                            <p class="mb-4 text-gray-400 text-sm flex-1">
+                                根據客戶電路需求，提供彈性的電感參數調整與封裝選擇，完美適配現有系統。
+                            </p>
+                            <span class="text-brand-red text-sm font-bold mt-auto cursor-pointer hover:underline">查看詳情
+                                <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 應用場景 (Application Scenarios) - 原 Folio -->
+    <section id="applications" class="py-24 bg-brand-black">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="section-title">應用場景</h2>
+            </div>
+
+            <div class="flex flex-wrap items-center">
+                <!-- App 1: EV -->
+                <div class="lg:w-7/12 sm:w-1/2 w-full p-4">
+                    <div class="tech-overlay group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=800&auto=format&fit=crop"
+                            alt="Electric Vehicle"
+                            class="cover rounded-lg transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-4 left-4 z-20">
+                            <span class="bg-brand-red text-white text-xs px-2 py-1 rounded">AUTOMOTIVE</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-5/12 sm:w-1/2 w-full p-8 space-y-4">
+                    <h3 class="text-3xl font-bold text-white">新能源電動車</h3>
+                    <div class="w-12 h-1 bg-brand-red"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        應用於車載充電器 (OBC) 與 DC-DC 轉換器，高功率密度設計能有效減輕車體重量，提升續航里程。智能電感更能精準控制電池充放電，延長電池壽命。
+                    </p>
+                </div>
+
+                <!-- App 2: Data Center (Reverse Layout) -->
+                <div class="lg:w-7/12 sm:w-1/2 w-full p-4 sm:order-2">
+                    <div class="tech-overlay group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=800&auto=format&fit=crop"
+                            alt="Data Center"
+                            class="cover rounded-lg transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-4 left-4 z-20">
+                            <span class="bg-brand-red text-white text-xs px-2 py-1 rounded">SERVER</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-5/12 sm:w-1/2 w-full p-8 space-y-4 sm:order-1 sm:text-right">
+                    <h3 class="text-3xl font-bold text-white">AI 運算中心</h3>
+                    <div class="w-12 h-1 bg-brand-red sm:ml-auto"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        面對 AI 伺服器龐大的瞬間電流需求，我們的智能電感提供毫秒級響應，確保 GPU 與 CPU 在全速運算時獲得最純淨穩定的電力供應，降低當機風險。
+                    </p>
+                </div>
+
+                <!-- App 3: 5G/IoT -->
+                <div class="lg:w-7/12 sm:w-1/2 w-full p-4 sm:order-3">
+                    <div class="tech-overlay group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop"
+                            alt="Smart Factory"
+                            class="cover rounded-lg transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-4 left-4 z-20">
+                            <span class="bg-brand-red text-white text-xs px-2 py-1 rounded">INDUSTRIAL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-5/12 sm:w-1/2 w-full p-8 space-y-4 sm:order-4">
+                    <h3 class="text-3xl font-bold text-white">智慧工廠自動化</h3>
+                    <div class="w-12 h-1 bg-brand-red"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        在佈滿電磁干擾的工業環境中，具備高抗雜訊能力的 AI 電感是機器手臂與自動化控制系統穩定運作的關鍵，有效提升生產良率。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡我們 (Contact Us) - 原 Footer 上半部 -->
+    <footer id="contact" class="pt-24 bg-brand-gray border-t border-gray-800">
+        <div class="container flex flex-wrap justify-between">
+            <!-- Brand Info -->
+            <div class="lg:w-1/3 md:w-1/2 w-full p-6">
+                <a href="#"
+                    class="font-tech text-3xl font-bold tracking-widest flex items-center gap-2 mb-6 text-white">
+                    <i class="fa-solid fa-microchip text-brand-red"></i> AI INDUCTOR
+                </a>
+                <p class="text-gray-400 mb-6 leading-relaxed">
+                    致力於研發最先進的智能電感技術，為全球客戶提供高效、可靠的電源解決方案。歡迎聯繫我們，共創綠色能源未來。
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#"
+                        class="w-10 h-10 rounded bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-red hover:text-white transition-all"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-red hover:text-white transition-all"><i
+                            class="fa-brands fa-twitter"></i></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-red hover:text-white transition-all"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="lg:w-1/4 md:w-1/2 w-full p-6">
+                <h3 class="mb-6 text-xl font-bold text-white border-l-4 border-brand-red pl-3">聯絡資訊</h3>
+                <ul class="text-gray-400 space-y-4">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot mt-1 text-brand-red"></i>
+                        <span>台北市內湖科學園區創新路 88 號</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-brand-red"></i>
+                        <span>(02) 2345-6789</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-envelope text-brand-red"></i>
+                        <span>service@ai-inductor.com.tw</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-clock text-brand-red"></i>
+                        <span>週一至週五 09:00 - 18:00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Links (Original Footer columns merged) -->
+            <div class="lg:w-1/4 md:w-1/2 w-full p-6">
+                <h3 class="mb-6 text-xl font-bold text-white border-l-4 border-brand-red pl-3">快速連結</h3>
+                <div class="flex flex-wrap">
+                    <ul class="text-gray-400 space-y-2 w-1/2">
+                        <li><a href="#features" class="hover:text-brand-red transition-colors">產品特色</a></li>
+                        <li><a href="#advantages" class="hover:text-brand-red transition-colors">技術優勢</a></li>
+                        <li><a href="#applications" class="hover:text-brand-red transition-colors">應用場景</a></li>
+                    </ul>
+                    <ul class="text-gray-400 space-y-2 w-1/2">
+                        <li><a href="#" class="hover:text-brand-red transition-colors">技術白皮書</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition-colors">常見問題</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition-colors">隱私權政策</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="bg-brand-black py-6 mt-12 border-t border-gray-800 text-gray-500 text-sm text-center">
+            Copyright &copy; 2026 AI Inductor Tech. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        $(function () {
+            // Mobile Menu Toggle
+            $('.toggle-btn').click(function (e) {
+                e.preventDefault();
+                $('.mobile-nav').removeClass('hidden').addClass('flex');
+            });
+            $('.nav-close, .nav-item').click(function () {
+                $('.mobile-nav').addClass('hidden').removeClass('flex');
+            });
+
+            // Smooth Scroll for Anchor Links (Backup for older browsers)
+            $('a[href^="#"]').on('click', function (event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 80 // Adjust for fixed header
+                    }, 800);
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

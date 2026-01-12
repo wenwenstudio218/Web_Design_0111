@@ -122,7 +122,7 @@
         </div>
     </nav>
 
-    <!-- Mobile Nav Overlay -->
+    <!-- Mobile Nav -->
     <nav
         class="mobile-nav w-full h-screen bg-brand-dark fixed z-50 text-gray-100 text-center flex flex-col justify-center space-y-8 hidden top-0 left-0 transition-opacity">
         <a href="#" class="text-4xl font-tech font-bold text-brand-red mb-8">AI INDUCTOR</a>
@@ -136,9 +136,8 @@
                 class="fa-solid fa-xmark fa-2xl"></i></a>
     </nav>
 
-    <!-- Header / Hero Section -->
+    <!-- Header  -->
     <header class="pb-20 sm:pt-40 pt-28 bg-gradient-to-b from-brand-gray to-brand-black relative overflow-hidden">
-        <!-- 背景裝飾 -->
         <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-red/5 skew-x-12 pointer-events-none"></div>
 
         <div class="container flex flex-wrap items-center relative z-10">
@@ -159,7 +158,6 @@
             </div>
             <div class="lg:w-1/2 sm:w-5/12 w-full order-1 sm:order-2 mb-10 sm:mb-0">
                 <div class="relative group">
-                    <!-- 裝飾框線 -->
                     <div
                         class="absolute -inset-2 bg-gradient-to-r from-brand-red to-gray-800 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
                     </div>
@@ -171,7 +169,7 @@
         </div>
     </header>
 
-    <!-- 產品特色 (Product Features) - 原 About -->
+    <!-- 產品特色 (Product Features) -->
     <section id="features" class="py-24 bg-brand-dark relative">
         <div class="container">
             <div class="text-center">
@@ -233,7 +231,7 @@
         </div>
     </section>
 
-    <!-- 技術優勢 (Technical Advantages) - 原 Service -->
+    <!-- 技術優勢 (Technical Advantages) -->
     <section id="advantages" class="py-24 bg-brand-gray lg:px-4">
         <div class="container">
             <div class="text-center mb-12">
@@ -328,7 +326,7 @@
         </div>
     </section>
 
-    <!-- 應用場景 (Application Scenarios) - 原 Folio -->
+    <!-- 應用場景 (Application Scenarios) -->
     <section id="applications" class="py-24 bg-brand-black">
         <div class="container">
             <div class="text-center mb-16">
@@ -355,7 +353,7 @@
                     </p>
                 </div>
 
-                <!-- App 2: Data Center (Reverse Layout) -->
+                <!-- App 2: Data Center -->
                 <div class="lg:w-7/12 sm:w-1/2 w-full p-4 sm:order-2">
                     <div class="tech-overlay group cursor-pointer">
                         <img src="./images/app2_data_center.png"
@@ -374,7 +372,7 @@
                     </p>
                 </div>
 
-                <!-- App 3: 5G/IoT -->
+                <!-- App 3: IoT -->
                 <div class="lg:w-7/12 sm:w-1/2 w-full p-4 sm:order-3">
                     <div class="tech-overlay group cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop"
@@ -396,7 +394,7 @@
         </div>
     </section>
 
-    <!-- 聯絡我們 (Contact Us) - 原 Footer 上半部 -->
+    <!-- 聯絡我們 (Contact Us) -->
     <footer id="contact" class="pt-24 bg-brand-gray border-t border-gray-800">
         <div class="container flex flex-wrap justify-between">
             <!-- Brand Info -->
@@ -444,7 +442,7 @@
                 </ul>
             </div>
 
-            <!-- Quick Links (Original Footer columns merged) -->
+            <!-- Quick Links -->
             <div class="lg:w-1/4 md:w-1/2 w-full p-6">
                 <h3 class="mb-6 text-xl font-bold text-white border-l-4 border-brand-red pl-3">快速連結</h3>
                 <div class="flex flex-wrap">
@@ -479,13 +477,13 @@
                 $('.mobile-nav').addClass('hidden').removeClass('flex');
             });
 
-            // Smooth Scroll for Anchor Links (Backup for older browsers)
+            // Smooth Scroll for Anchor Links
             $('a[href^="#"]').on('click', function (event) {
                 var target = $(this.getAttribute('href'));
                 if (target.length) {
                     event.preventDefault();
                     $('html, body').stop().animate({
-                        scrollTop: target.offset().top - 80 // Adjust for fixed header
+                        scrollTop: target.offset().top - 80
                     }, 100);
                 }
             });
